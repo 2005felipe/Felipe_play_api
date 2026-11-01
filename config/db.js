@@ -1,8 +1,6 @@
 require('dotenv').config();
 const mysql = require('mysql2');
 
-// Pool de conexiones: evita que se caiga la conexión y respeta el límite del plan gratis de Clever Cloud.
-// Las credenciales salen SOLO del archivo .env (nada escrito en el código).
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -10,7 +8,9 @@ const db = mysql.createPool({
     database: process.env.DB_NAME,
     port: process.env.DB_PORT || 3306,
     connectTimeout: 60000,
-    connectionLimit: 4,
+    connectionLimit: 2,
+    maxIdle: 1,
+    idleTimeout: 60000,
     waitForConnections: true,
     ssl: {
         rejectUnauthorized: false
