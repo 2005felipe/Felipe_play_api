@@ -43,6 +43,5 @@ Las demás tablas siguen el mismo patrón:
 
 ## Códigos de respuesta
 200 OK, 201 creado, 400 datos inválidos, 404 no encontrado, 409 duplicado o conflicto de llave foránea, 500 error interno.
-
 ## URL pública
-(Se agrega después del despliegue)
+https://felipe-play-api.onrender.com
